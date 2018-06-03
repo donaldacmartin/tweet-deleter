@@ -10,7 +10,9 @@ def read_config():
     config.read(CONFIG_FILE)
     return config
     
-def delete_tweets(tweets, token, cookie, account):    
+def delete_tweets(export_path, token, cookie, account, months_to_keep):  
+    tweets = get_tweets(export_path, months_to_keep)
+    
     for tweet in tweets:
         sleep(1)
 
@@ -18,6 +20,7 @@ def delete_tweets(tweets, token, cookie, account):
             print("Successfully deleted " + str(tweet["date"]))
         else:
             print("Failed to delete " + str(tweet["date"]))
+            
 
 if __name__ == "__main__":
     config = read_config()
@@ -28,5 +31,4 @@ if __name__ == "__main__":
     cookie = config["twitter"]["cookie"]
     account = config["twitter"]["account"]
     
-    tweets = get_tweets(export_path, months_to_keep)
-    delete_tweets(tweets, token, cookie, account)
+    delete_tweets(export_path, token, cookie, account, months_to_keep)
