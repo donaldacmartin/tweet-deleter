@@ -37,7 +37,6 @@ def parse_twitter_data(json):
 def filter_new_tweets(tweets, number_months):
     today = datetime.now()
     time_delta = timedelta(days = (number_months * 30))
-    print(tweets)
     return [tweet for tweet in tweets if today - tweet["date"] > time_delta]
     
 def get_tweets(export_path, number_months):
