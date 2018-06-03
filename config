@@ -1,0 +1,7 @@
+[twitter]
+account = YOUR_TWITTER_HANDLE
+token = TOKEN_FROM_API
+cookie = COOKIE_FROM_API
+[settings]
+export_path = PATH_TO_EXPORT_JS_FOLDER
+months_to_keep = 12
